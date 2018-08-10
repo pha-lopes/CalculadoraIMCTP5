@@ -4,4 +4,9 @@
     <string name="text_weight">Peso</string>
     <string name="medida_altura">cm</string>
     <string name="text_height">Altura</string>
+    <string name="hint_decimal_field">00.0</string>
+    <string name="hint_integer_field">0</string>
+    <string name="button_text_calcular">Calcular</string>
+    <string name="hint_result_num_field">--.-</string>
+    <string name="hint_result_text_field">IMC</string>
 </resources>

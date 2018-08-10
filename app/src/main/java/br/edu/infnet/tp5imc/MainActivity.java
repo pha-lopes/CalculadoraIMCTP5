@@ -3,6 +3,7 @@ package br.edu.infnet.tp5imc;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnCalcular;
     private TextView mTxtImcNum, mTxtImcText;
 
-    private final static String EMPTY_FIELD = "Campos não podem estar em branco.";
+    private final String EMPTY_FIELD = "Campos não podem estar em branco.";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
                 float imc = peso / (altura * altura);
                 String imcDesc = grauIMC(imc);
 
-//                mTxtImcNum.setText(Float.toString(imc));
                 mTxtImcNum.setText(String.format(Locale.US, "%.1f", imc));
                 mTxtImcText.setText(imcDesc);
 
@@ -100,6 +100,11 @@ public class MainActivity extends AppCompatActivity {
     protected void hideKeyboard(View view)
     {
         InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        in.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        try{
+            in.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        } catch (NullPointerException ex){
+            Log.e("FECHAR_TECLADO: ", ex.getMessage());
+        }
+
     }
 }
