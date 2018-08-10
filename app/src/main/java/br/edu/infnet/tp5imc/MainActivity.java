@@ -70,8 +70,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-
-
         }
     };
 
@@ -90,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             imcResult = "Sobrepeso";
         } else if (imc == 30 || imc < 35){
             imcResult = "Obesidade Grau I";
-        } else if (imc == 30 || imc < 40){
+        } else if (imc == 35 || imc < 40){
             imcResult = "Obesidade Grau II (severa)";
         } else if (imc >= 40){
             imcResult = "Obesidade Grau III (mórbida)";
